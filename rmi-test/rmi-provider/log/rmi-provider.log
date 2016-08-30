@@ -1,8 +1,0 @@
-2016-08-29 16:28:16,590 INFO [net.cooliang.rmi.provider.main.SpringHelloServer] - log4j.properties loaded.
-2016-08-29 16:28:16,820 INFO [org.springframework.context.support.ClassPathXmlApplicationContext] - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@5dccce3c: startup date [Mon Aug 29 16:28:16 GMT+08:00 2016]; root of context hierarchy
-2016-08-29 16:28:16,907 INFO [org.springframework.beans.factory.xml.XmlBeanDefinitionReader] - Loading XML bean definitions from class path resource [spring/spring-rpc.xml]
-2016-08-29 16:28:17,386 INFO [org.springframework.beans.factory.support.DefaultListableBeanFactory] - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@536c79d7: defining beans [springHelloService,serviceExporter]; root of factory hierarchy
-2016-08-29 16:28:17,504 INFO [org.springframework.remoting.rmi.RmiServiceExporter] - Looking for RMI registry at port '9999'
-2016-08-29 16:28:18,634 INFO [org.springframework.remoting.rmi.RmiServiceExporter] - Could not detect RMI registry - creating new one
-2016-08-29 16:28:18,676 INFO [org.springframework.remoting.rmi.RmiServiceExporter] - Binding service 'springHelloService' to RMI registry: RegistryImpl[UnicastServerRef [liveRef: [endpoint:[10.26.190.85:9999](local),objID:[0:0:0, 0]]]]
-2016-08-29 16:28:18,740 INFO [net.cooliang.rmi.provider.main.SpringHelloServer] - server is starting.
