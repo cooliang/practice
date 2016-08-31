@@ -12,6 +12,7 @@
 		<module>schedule-api</module>
 		<module>schedule-core</module>
 		<module>schedule-client</module>
+		<module>schedule-test</module>
 	</modules>
 
 	<properties>
