@@ -6,7 +6,7 @@ import java.rmi.registry.LocateRegistry;
 import net.cooliang.rmi.api.constant.RmiConstant;
 import net.cooliang.rmi.api.service.HelloService;
 import net.cooliang.rmi.provider.service.impl.HelloServiceImpl;
-import net.cooliang.rmi.provider.util.CuratorZkUtils;
+import net.cooliang.rmi.util.CuratorZkClient;
 
 public class ZkHelloServer {
 
@@ -17,9 +17,9 @@ public class ZkHelloServer {
 		LocateRegistry.createRegistry(8888);
 		// 把远程调用对象注册到RMI注册服务器
 		Naming.bind(RmiConstant.RMI_PATH_HELLO_SERVICE, service);
-		// 发布注册到Zookeeper
-		CuratorZkUtils registry = new CuratorZkUtils("localhost:2181");
-		registry.register(RmiConstant.RMI_PATH_HELLO_SERVICE);
+		// 发布url到Zookeeper
+		CuratorZkClient client = new CuratorZkClient("localhost:2181");
+		client.register("HelloService", RmiConstant.RMI_PATH_HELLO_SERVICE);
 	}
 
 }
