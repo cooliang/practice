@@ -12,6 +12,7 @@
 		<module>rmi-api</module>
 		<module>rmi-consumer</module>
 		<module>rmi-provider</module>
+		<module>rmi-support</module>
 	</modules>
 
 	<properties>
