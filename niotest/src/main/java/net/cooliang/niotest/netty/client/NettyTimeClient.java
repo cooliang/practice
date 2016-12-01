@@ -8,13 +8,14 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import net.cooliang.niotest.constant.CommonConstant;
 import net.cooliang.niotest.netty.client.handler.NettyTimeClientHandler;
 
 public class NettyTimeClient {
 
 	public static void main(String[] args) throws Exception {
 		NettyTimeClient client = new NettyTimeClient();
-		client.connect("localhost", 8888);
+		client.connect("localhost", CommonConstant.PORT);
 	}
 
 	public void connect(String ip, int port) throws Exception {

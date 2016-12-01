@@ -7,7 +7,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import net.cooliang.niotest.netty.constant.CommonConstant;
+import net.cooliang.niotest.constant.CommonConstant;
 
 public class NettyTimeClientHandler extends ChannelInboundHandlerAdapter {
 

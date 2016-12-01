@@ -8,13 +8,14 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import net.cooliang.niotest.constant.CommonConstant;
 import net.cooliang.niotest.netty.server.handler.NettyTimeServerHandler;
 
 public class NettyTimeServer {
 
 	public static void main(String[] args) throws Exception {
 		NettyTimeServer server = new NettyTimeServer();
-		server.start(8888);
+		server.start(CommonConstant.PORT);
 	}
 
 	public void start(int port) throws Exception {
