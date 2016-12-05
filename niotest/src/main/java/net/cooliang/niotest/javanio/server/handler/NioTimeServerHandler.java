@@ -7,6 +7,7 @@ import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
+import java.util.Iterator;
 import java.util.Set;
 
 import net.cooliang.niotest.constant.CommonConstant;
@@ -51,10 +52,13 @@ public class NioTimeServerHandler implements Runnable {
 			try {
 				selector.select(1000);
 				Set<SelectionKey> keys = selector.selectedKeys();
-				for (SelectionKey key : keys) {
+				Iterator<SelectionKey> it = keys.iterator();
+				while (it.hasNext()) {
+					SelectionKey key = it.next();
+					it.remove();
 					try {
 						handleInput(key);
-					} catch (Exception e) {
+					} catch (IOException e) {
 						if (null != key) {
 							key.cancel();
 							if (null != key.channel()) {
@@ -98,6 +102,7 @@ public class NioTimeServerHandler implements Runnable {
 		sc.configureBlocking(false);
 		// Add the new connection to the selector
 		sc.register(selector, SelectionKey.OP_READ);
+		ssc.register(selector, SelectionKey.OP_ACCEPT);
 	}
 
 	private void doRead(SelectionKey key) throws IOException {

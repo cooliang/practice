@@ -6,6 +6,7 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
+import java.util.Iterator;
 import java.util.Set;
 
 import net.cooliang.niotest.constant.CommonConstant;
@@ -48,7 +49,10 @@ public class NioTimeClientHandler implements Runnable {
 			try {
 				selector.select(1000);
 				Set<SelectionKey> keys = selector.selectedKeys();
-				for (SelectionKey key : keys) {
+				Iterator<SelectionKey> it = keys.iterator();
+				while (it.hasNext()) {
+					SelectionKey key = it.next();
+					it.remove();
 					try {
 						handleInput(key);
 					} catch (IOException e) {
@@ -76,23 +80,46 @@ public class NioTimeClientHandler implements Runnable {
 	}
 
 	private void handleInput(SelectionKey key) throws IOException {
-		// server: connect -> read
+		// server: connect -> write -> read -> close
 		if (key.isValid()) {
 			// 判断是否连接成功
 			if (key.isConnectable()) {
 				SocketChannel sc = (SocketChannel) key.channel();
 				if (sc.finishConnect()) {
-					sc.register(selector, SelectionKey.OP_READ);
-					doWrite(sc);
+					sc.register(selector, SelectionKey.OP_WRITE);
 				} else {
 					System.exit(1); // 连接失败，进程退出
 				}
+			}
+			if (key.isWritable()) {
+				doWrite(key);
 			}
 			if (key.isReadable()) {
 				// Read the data
 				doRead(key);
 			}
 		}
+	}
+
+	private void doConnect() throws IOException {
+		if (socketChannel.connect(new InetSocketAddress(host, port))) {
+			socketChannel.register(selector, SelectionKey.OP_WRITE);
+		} else {
+			socketChannel.register(selector, SelectionKey.OP_CONNECT);
+		}
+	}
+
+	private void doWrite(SelectionKey key) throws IOException {
+		SocketChannel sc = (SocketChannel) key.channel();
+		byte[] req = CommonConstant.QUERY_TIME_ORDER.getBytes();
+		ByteBuffer writeBuffer = ByteBuffer.allocate(req.length);
+		writeBuffer.put(req);
+		writeBuffer.flip();
+		while (writeBuffer.hasRemaining()) {
+			sc.write(writeBuffer);
+		}
+		System.out.println("Send order to server succeed");
+		socketChannel.register(selector, SelectionKey.OP_READ);
 	}
 
 	private void doRead(SelectionKey key) throws IOException {
@@ -115,23 +142,4 @@ public class NioTimeClientHandler implements Runnable {
 		}
 	}
 
-	private void doConnect() throws IOException {
-		if (socketChannel.connect(new InetSocketAddress(host, port))) {
-			socketChannel.register(selector, SelectionKey.OP_READ);
-			doWrite(socketChannel);
-		} else {
-			socketChannel.register(selector, SelectionKey.OP_CONNECT);
-		}
-	}
-
-	private void doWrite(SocketChannel sc) throws IOException {
-		byte[] req = CommonConstant.QUERY_TIME_ORDER.getBytes();
-		ByteBuffer writeBuffer = ByteBuffer.allocate(req.length);
-		writeBuffer.put(req);
-		writeBuffer.flip();
-		sc.write(writeBuffer);
-		if (!writeBuffer.hasRemaining()) {
-			System.out.println("Send order to server succeed");
-		}
-	}
 }
