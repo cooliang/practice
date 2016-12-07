@@ -14,7 +14,6 @@ import net.cooliang.niotest.netty.server.handler.NettyTimeServerHandler;
 public class NettyTimeServer {
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("test");
 		NettyTimeServer server = new NettyTimeServer();
 		server.start(CommonConstant.PORT);
 	}
