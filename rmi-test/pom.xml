@@ -23,6 +23,7 @@
 		<zookeeper.version>3.4.6</zookeeper.version>
 		<curator.version>2.11.0</curator.version>
 		<commons.collections.version>3.2.2</commons.collections.version>
+		<protobuf.version>2.6.1</protobuf.version>
 	</properties>
 
 	<dependencyManagement>
@@ -91,6 +92,11 @@
 				<groupId>commons-collections</groupId>
 				<artifactId>commons-collections</artifactId>
 				<version>${commons.collections.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.google.protobuf</groupId>
+				<artifactId>protobuf-java</artifactId>
+				<version>${protobuf.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
