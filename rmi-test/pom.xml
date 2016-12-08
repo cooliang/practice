@@ -23,8 +23,8 @@
 		<zookeeper.version>3.4.6</zookeeper.version>
 		<curator.version>2.11.0</curator.version>
 		<commons.collections.version>3.2.2</commons.collections.version>
-		<protobuf.version>2.6.1</protobuf.version>
-		<kryo.version>2.24.0</kryo.version>
+		<protobuf.version>3.1.0</protobuf.version>
+		<kryo.version>4.0.0</kryo.version>
 	</properties>
 
 	<dependencyManagement>
@@ -100,7 +100,7 @@
 				<version>${protobuf.version}</version>
 			</dependency>
 			<dependency>
-			    <groupId>com.esotericsoftware.kryo</groupId>
+			    <groupId>com.esotericsoftware</groupId>
 			    <artifactId>kryo</artifactId>
 			    <version>${kryo.version}</version>
 			</dependency>
