@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 		http://www.springframework.org/schema/beans/spring-beans.xsd 
 		http://www.springframework.org/schema/context 
-		http://www.springframework.org/schema/context/spring-context.xsd">
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://code.alibabatech.com/schema/dubbo
+		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<bean id="springHelloService" class="net.cooliang.rmi.provider.service.spring.impl.SpringHelloServiceImpl" />
+	<context:annotation-config />
+	<context:component-scan base-package="net.cooliang.dubbo" />
 
-	<bean id="serviceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
-		<!-- 服务 -->
-		<property name="service" ref="springHelloService" />
-		<!-- 发布的服务名 -->
-		<property name="serviceName" value="springHelloService" />
-		<!-- 服务对应的接口 -->
-		<property name="serviceInterface" value="net.cooliang.rmi.api.service.spring.SpringHelloService" />
-		<!-- 服务绑定的端口 -->
-		<property name="registryPort" value="9999" />
-	</bean>
+	<dubbo:application name="practice_provider" />
+	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
+	<dubbo:protocol name="dubbo" port="20113" />
+
+	<dubbo:service interface="net.cooliang.dubbo.api.service.HelloService" ref="helloService" />
 
 </beans>
