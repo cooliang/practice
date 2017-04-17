@@ -4,12 +4,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class DubboProvider {
 
-	@SuppressWarnings("resource")
 	public static void main(String[] args) throws InterruptedException {
-		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring/spring-rpc.xml");
-		context.start();
-		while (true) {
-			Thread.sleep(300 * 1000);
+		try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
+				new String[] { "spring/spring-context.xml", "spring/spring-rpc.xml" })) {
+			while (true) {
+				Thread.sleep(300 * 1000);
+			}
 		}
 	}
 
