@@ -18,12 +18,14 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
 		<spring.version>3.2.10.RELEASE</spring.version>
-		<log.version>1.7.5</log.version>
+		<slf4j.version>1.7.5</slf4j.version>
+		<log4j2.version>1.7.5</log4j2.version>
 		<dubbo.version>2.5.3</dubbo.version>
 		<zookeeper.version>3.4.8</zookeeper.version>
 		<zkclient.version>0.10</zkclient.version>
 		<protobuf.version>3.1.0</protobuf.version>
 		<kryo.version>4.0.0</kryo.version>
+		<aspectjweaver.version>1.8.10</aspectjweaver.version>
 	</properties>
 
 	<dependencyManagement>
@@ -36,17 +38,17 @@
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>jcl-over-slf4j</artifactId>
-				<version>${log.version}</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
-				<version>${log.version}</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-log4j12</artifactId>
-				<version>${log.version}</version>
+				<version>${slf4j.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>com.alibaba</groupId>
@@ -72,6 +74,11 @@
 				<groupId>com.esotericsoftware</groupId>
 				<artifactId>kryo</artifactId>
 				<version>${kryo.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.aspectj</groupId>
+				<artifactId>aspectjweaver</artifactId>
+				<version>${aspectjweaver.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
