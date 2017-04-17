@@ -11,6 +11,7 @@
 	<packaging>jar</packaging>
 
 	<dependencies>
+		<!-- 
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
@@ -19,6 +20,7 @@
 		    <groupId>com.esotericsoftware</groupId>
 		    <artifactId>kryo</artifactId>
 		</dependency>
+		 -->
 	</dependencies>
 
 	<build>
