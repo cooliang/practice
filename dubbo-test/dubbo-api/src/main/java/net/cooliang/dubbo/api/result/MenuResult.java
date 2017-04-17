@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class MenuResult implements Serializable {
 
-	private static final long serialVersionUID = 4390204990228143408L;
+	private static final long serialVersionUID = 1L;
 
 	private int menuId;
 	private String menuName;

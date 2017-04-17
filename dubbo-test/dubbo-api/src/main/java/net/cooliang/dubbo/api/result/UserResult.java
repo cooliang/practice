@@ -5,7 +5,7 @@ import java.util.List;
 
 public class UserResult implements Serializable {
 
-	private static final long serialVersionUID = 9135587387497430339L;
+	private static final long serialVersionUID = 1L;
 
 	private String username;
 	private String password;
