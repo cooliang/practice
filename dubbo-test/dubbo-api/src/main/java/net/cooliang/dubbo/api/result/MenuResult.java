@@ -2,6 +2,8 @@ package net.cooliang.dubbo.api.result;
 
 import java.io.Serializable;
 
+import com.alibaba.fastjson.JSON;
+
 public class MenuResult implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -32,6 +34,11 @@ public class MenuResult implements Serializable {
 
 	public void setMenuUrl(String menuUrl) {
 		this.menuUrl = menuUrl;
+	}
+
+	@Override
+	public String toString() {
+		return JSON.toJSONString(this);
 	}
 
 }

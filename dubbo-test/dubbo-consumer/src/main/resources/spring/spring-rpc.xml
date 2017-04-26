@@ -11,5 +11,6 @@
 	<dubbo:consumer check="false" timeout="5000" />
 
 	<dubbo:reference id="helloFacade" interface="net.cooliang.dubbo.api.facade.HelloFacade" />
+	<dubbo:reference id="userFacade" interface="net.cooliang.dubbo.api.facade.UserFacade" />
 
 </beans>
