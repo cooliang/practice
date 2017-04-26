@@ -2,7 +2,7 @@ package net.cooliang.dubbo.provider.service.impl;
 
 import org.springframework.stereotype.Service;
 
-import net.cooliang.dubbo.api.service.HelloService;
+import net.cooliang.dubbo.provider.service.HelloService;
 
 @Service("helloService")
 public class HelloServiceImpl implements HelloService {

@@ -3,14 +3,16 @@ package net.cooliang.dubbo.api.result;
 import java.io.Serializable;
 import java.util.List;
 
+import com.alibaba.fastjson.JSON;
+
 public class UserResult implements Serializable {
 
-	private static final long serialVersionUID = 9135587387497430339L;
+	private static final long serialVersionUID = 1L;
 
 	private String username;
 	private String password;
 	private String nickName;
-	private List<RoleResult> roles;
+	private RoleResult role;
 	private List<MenuResult> menus;
 
 	public String getUsername() {
@@ -37,12 +39,12 @@ public class UserResult implements Serializable {
 		this.nickName = nickName;
 	}
 
-	public List<RoleResult> getRoles() {
-		return roles;
+	public RoleResult getRole() {
+		return role;
 	}
 
-	public void setRoles(List<RoleResult> roles) {
-		this.roles = roles;
+	public void setRole(RoleResult role) {
+		this.role = role;
 	}
 
 	public List<MenuResult> getMenus() {
@@ -51,6 +53,11 @@ public class UserResult implements Serializable {
 
 	public void setMenus(List<MenuResult> menus) {
 		this.menus = menus;
+	}
+
+	@Override
+	public String toString() {
+		return JSON.toJSONString(this);
 	}
 
 }

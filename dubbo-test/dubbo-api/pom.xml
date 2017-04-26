@@ -12,6 +12,11 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<!-- 
+		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
 		</dependency>
@@ -19,6 +24,7 @@
 		    <groupId>com.esotericsoftware</groupId>
 		    <artifactId>kryo</artifactId>
 		</dependency>
+		 -->
 	</dependencies>
 
 	<build>

@@ -11,7 +11,7 @@ public class UserVo {
 	private String password;
 
 	private String nickName;
-	private List<Role> roles;
+	private Role role;
 	private List<Menu> menus;
 
 	public String getUsername() {
@@ -38,12 +38,12 @@ public class UserVo {
 		this.nickName = nickName;
 	}
 
-	public List<Role> getRoles() {
-		return roles;
+	public Role getRole() {
+		return role;
 	}
 
-	public void setRoles(List<Role> roles) {
-		this.roles = roles;
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	public List<Menu> getMenus() {

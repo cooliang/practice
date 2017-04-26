@@ -2,9 +2,11 @@ package net.cooliang.dubbo.api.result;
 
 import java.io.Serializable;
 
+import com.alibaba.fastjson.JSON;
+
 public class RoleResult implements Serializable {
 
-	private static final long serialVersionUID = -6081839427644896031L;
+	private static final long serialVersionUID = 1L;
 
 	private int id;
 	private String roleName;
@@ -23,6 +25,11 @@ public class RoleResult implements Serializable {
 
 	public void setRoleName(String roleName) {
 		this.roleName = roleName;
+	}
+
+	@Override
+	public String toString() {
+		return JSON.toJSONString(this);
 	}
 
 }
