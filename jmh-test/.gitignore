@@ -1,6 +1,6 @@
-/target/
-/.classpath
-/.project
-/.settings/
-/.idea/
-/jmh-test.iml
+target
+.classpath
+.project
+.settings
+.idea
+*.iml
