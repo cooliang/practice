@@ -10,7 +10,7 @@ public class UserResult implements Serializable {
 	private String username;
 	private String password;
 	private String nickName;
-	private List<RoleResult> roles;
+	private RoleResult role;
 	private List<MenuResult> menus;
 
 	public String getUsername() {
@@ -37,12 +37,12 @@ public class UserResult implements Serializable {
 		this.nickName = nickName;
 	}
 
-	public List<RoleResult> getRoles() {
-		return roles;
+	public RoleResult getRole() {
+		return role;
 	}
 
-	public void setRoles(List<RoleResult> roles) {
-		this.roles = roles;
+	public void setRole(RoleResult role) {
+		this.role = role;
 	}
 
 	public List<MenuResult> getMenus() {
