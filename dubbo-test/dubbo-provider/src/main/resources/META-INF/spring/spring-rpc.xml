@@ -9,7 +9,7 @@
 		http://code.alibabatech.com/schema/dubbo
 		http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<dubbo:application name="practice_provider" />
+	<dubbo:application name="practice_provider" logger="slf4j"/>
 	<dubbo:registry address="zookeeper://127.0.0.1:2181" />
 	<dubbo:protocol name="dubbo" port="20113" />
 
